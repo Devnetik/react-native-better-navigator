@@ -11,6 +11,11 @@
     "navigator",
     "component"
   ],
+  "peerDependencies": {
+    "react": "15.2.1",
+    "react-native": "0.30.0",
+    "react-native-vector-icons": "^2.0.3"
+  },
   "author": "Michael Malura <maluramichael@googlemail.com>",
   "license": "ISC"
 }
