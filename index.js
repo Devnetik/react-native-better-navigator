@@ -18,7 +18,7 @@ import {TextTitlebar, BackButton, MenuButton} from "./components";
 import Style from "./style.js";
 import {connect} from "react-redux";
 
-export default class BetterNavigator extends Component {
+class BetterNavigator extends Component {
 
     /**********************************************************************
      * Component
@@ -211,3 +211,9 @@ export default class BetterNavigator extends Component {
         }
     }
 }
+
+BetterNavigator.defaultProps = {
+    routes: new Map()
+};
+
+export default BetterNavigator;
