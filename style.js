@@ -4,7 +4,7 @@
 
 import React, {Component} from 'react';
 import {StyleSheet} from 'react-native';
-import Constants from '../../core/constants';
+import Constants from 'react-native-basic-constants';
 
 export default StyleSheet.create({
 	navigator    : {

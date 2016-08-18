@@ -17,5 +17,8 @@
     "react-native-vector-icons": "^2.0.3"
   },
   "author": "Michael Malura <maluramichael@googlemail.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "react-native-basic-constants": "github:devnetik/react-native-basic-constants"
+  }
 }
