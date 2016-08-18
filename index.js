@@ -100,9 +100,11 @@ export default class BetterNavigator extends Component {
      * Navigator
      **********************************************************************/
     callRouteFunction(functionName, route, navigator, index, navState) {
-        const Route = this.props.routes(route);
-        if (Route && Route[functionName]) {
-            return Route[functionName](route, navigator, index, navState);
+        if (this.props.routes) {
+            const Route = this.props.routes(route);
+            if (Route && Route[functionName]) {
+                return Route[functionName](route, navigator, index, navState);
+            }
         }
         return null;
     }
@@ -111,23 +113,24 @@ export default class BetterNavigator extends Component {
         if (this.cachedRoutes.has(route.name)) {
             return this.cachedRoutes.get(route.name);
         } else {
-            const Route = this.props.routes(route);
-            if (Route) {
-                const stateMapper = Route.mapState ? Route.mapState : ()=> {
-                    return {Store: {}}
-                };
-                const actionMapper = Route.mapActions ? Route.mapActions : ()=> {
-                    return {Actions: {}}
-                };
+            if (this.props.routes) {
+                const Route = this.props.routes(route);
+                if (Route) {
+                    const stateMapper = Route.mapState ? Route.mapState : ()=> {
+                        return {Store: {}}
+                    };
+                    const actionMapper = Route.mapActions ? Route.mapActions : ()=> {
+                        return {Actions: {}}
+                    };
 
-                const connectedRoute = connect(stateMapper, actionMapper)(Route);
-                const element = React.createElement(connectedRoute, {...route.passProps, navigator: navigator});
+                    const connectedRoute = connect(stateMapper, actionMapper)(Route);
+                    const element = React.createElement(connectedRoute, {...route.passProps, navigator: navigator});
 
-                this.cachedRoutes.set(route.name, element);
+                    this.cachedRoutes.set(route.name, element);
 
-                return element;
+                    return element;
+                }
             }
-
             return <Text>404</Text>;
         }
     }
