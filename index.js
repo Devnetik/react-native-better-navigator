@@ -155,7 +155,7 @@ class BetterNavigator extends Component {
 	}
 
 	mapTitleToRoute(route, navigator, index, navState) {
-		const navigatorItem = this.callRouteFunction('getTitleBar', route, navigator, index, navState);
+		const navigatorItem = this.callRouteFunction('titleBar', route, navigator, index, navState);
 		if (navigatorItem) {
 			return navigatorItem;
 		}
@@ -169,7 +169,7 @@ class BetterNavigator extends Component {
 	}
 
 	mapLeftButtonToRoute(route, navigator, index, navState) {
-		const navigatorItem = this.callRouteFunction('getLeftButton', route, navigator, index, navState);
+		const navigatorItem = this.callRouteFunction('navigationBarLeftButton', route, navigator, index, navState);
 		if (navigatorItem) {
 			return navigatorItem;
 		}
@@ -184,7 +184,7 @@ class BetterNavigator extends Component {
 	}
 
 	mapRightButtonToRoute(route, navigator, index, navState) {
-		const navigatorItem = this.callRouteFunction('getRightButton', route, navigator, index, navState);
+		const navigatorItem = this.callRouteFunction('navigationBarRightButton', route, navigator, index, navState);
 		if (navigatorItem) {
 			return navigatorItem;
 		}
@@ -201,8 +201,8 @@ class BetterNavigator extends Component {
 	}
 
 	onRouteWillFocus(nextRoute) {
-		const titleBarColor = this.callRouteFunction('getTitleBarColor', nextRoute);
-		const isTitleBarVisible = this.callRouteFunction('isTitleBarVisible', nextRoute);
+		const titleBarColor = this.callRouteFunction('navigationBarColor', nextRoute);
+		const isTitleBarVisible = this.callRouteFunction('navigationBarVisible', nextRoute);
 
 		if (typeof titleBarColor !== 'undefined' && titleBarColor !== null) {
 			this.setNavigationBarColor(titleBarColor);
