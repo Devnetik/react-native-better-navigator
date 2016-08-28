@@ -69,7 +69,7 @@ class BetterNavigator extends Component {
 				renderScene={this.renderScene}
 				onWillFocus={this.onRouteWillFocus}
 				navigationBar={this.renderNavigationBar()}
-				sceneStyle={[Style.page, sceneStyle]}
+				sceneStyle={[Style.page, sceneStyle, this.props.sceneStyle]}
 				ref={'navigator'}
 			/>
 		);
