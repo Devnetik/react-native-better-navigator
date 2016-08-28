@@ -16,8 +16,7 @@ import {
 } from 'react-native';
 import {
 	TextTitlebar,
-	BackButton,
-	MenuButton
+	BackButton
 } from './components';
 import Style from './style.js';
 import {connect} from 'react-redux';
@@ -176,8 +175,6 @@ class BetterNavigator extends Component {
 
 		if (index > 0) {
 			return <BackButton onPress={this.onPressBackButton}/>;
-		} else if (index === 0) {
-			return <MenuButton onPress={this.onPressMenuButton}/>;
 		}
 
 		return <View/>;
