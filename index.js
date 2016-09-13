@@ -62,7 +62,6 @@ class BetterNavigator extends Component {
 		const sceneStyle = this.state.navigationBarHidden ? {marginTop: null} : {};
 
 		return (
-
 			<Navigator
 				initialRoute={this.props.initialRoute}
 				renderScene={this.renderScene}
@@ -154,11 +153,15 @@ class BetterNavigator extends Component {
 	}
 
 	mapTitleToRoute(route, navigator, index, navState) {
-		const navigatorItem = this.callRouteFunction('titleBar', route, navigator, index, navState);
+		const navigatorItem = this.callRouteFunction('navigationBarTitleBar', route, navigator, index, navState);
 		if (navigatorItem) {
 			return navigatorItem;
 		}
 
+		if (this.props.defaultComponents && this.props.defaultComponents.title) {
+			return this.props.defaultComponents.title(...arguments);
+		}
+		
 		return (
 			<TextTitlebar title={route.title ? route.title.toUpperCase() : ''}
 						  textStyle={[Style.titleBarText, route.titleTextStyle]}
@@ -167,8 +170,9 @@ class BetterNavigator extends Component {
 		);
 	}
 
-	mapLeftButtonToRoute(route, navigator, index, navState) {
-		const navigatorItem = this.callRouteFunction('navigationBarLeftButton', route, navigator, index, navState);
+	//route, navigator, index, navState
+	mapLeftButtonToRoute(route, navigator, index) {
+		const navigatorItem = this.callRouteFunction('navigationBarLeftButton', ...arguments);
 		if (navigatorItem) {
 			return navigatorItem;
 		}
@@ -177,13 +181,22 @@ class BetterNavigator extends Component {
 			return <BackButton onPress={this.onPressBackButton}/>;
 		}
 
+		if (this.props.defaultComponents && this.props.defaultComponents.left) {
+			return this.props.defaultComponents.left(...arguments);
+		}
+
 		return <View/>;
 	}
 
-	mapRightButtonToRoute(route, navigator, index, navState) {
-		const navigatorItem = this.callRouteFunction('navigationBarRightButton', route, navigator, index, navState);
+	//route, navigator, index, navState
+	mapRightButtonToRoute() {
+		const navigatorItem = this.callRouteFunction('navigationBarRightButton', ...arguments);
 		if (navigatorItem) {
 			return navigatorItem;
+		}
+
+		if (this.props.defaultComponents && this.props.defaultComponents.right) {
+			return this.props.defaultComponents.right(...arguments);
 		}
 
 		return <View/>;
