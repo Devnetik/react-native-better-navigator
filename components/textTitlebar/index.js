@@ -13,7 +13,7 @@ class TextTitleBar extends Component {
 	render() {
 		return (
 			<View style={[Style.container, this.props.containerStyle]}>
-				<Text style={[Style.text, this.props.textStyle]}>{this.props.title}</Text>
+				<Text style={[Style.text, this.props.textStyle]} numberOfLines={1}>{this.props.title}</Text>
 			</View>
 		)
 	}
