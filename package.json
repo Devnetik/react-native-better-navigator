@@ -1,10 +1,12 @@
 {
   "name": "react-native-better-navigator",
-  "version": "1.0.0",
-  "description": "Enhance the default navigator with some awesome features",
+  "version": "1.0.1",
+  "description": "Wraps the react-native navigator and provides an easy to use navigation interface",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json",
+    "docs": "npm run generate-docs && open docs/index.html",
+    "test": "jest"
   },
   "keywords": [
     "react-native",
@@ -12,10 +14,10 @@
     "component"
   ],
   "peerDependencies": {
-    "react-native-vector-icons": "*"
+    "react-native-vector-icons": "2.1.0"
   },
   "author": "Michael Malura <maluramichael@googlemail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "react-native-basic-constants": "github:devnetik/react-native-basic-constants"
   },
