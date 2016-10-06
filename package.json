@@ -1,6 +1,6 @@
 {
   "name": "react-native-better-navigator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Wraps the react-native navigator and provides an easy to use navigation interface",
   "main": "index.js",
   "scripts": {
