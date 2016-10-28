@@ -1,5 +1,7 @@
 # Better navigator
 
+[![Join the chat at https://gitter.im/Devnetik/react-native-better-navigator](https://badges.gitter.im/Devnetik/react-native-better-navigator.svg)](https://gitter.im/Devnetik/react-native-better-navigator?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Wraps the react-native navigator and provides an easy to use navigation interface
 
 *Handle the navigationbar inside the current route itself*
